@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: neuroforge-nexus
+
+  data:
+    mongodb:
+      uuid-representation: standard
+      uri: mongodb://localhost:27017
+      database: ${MONGO_DATABASE}
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.1:8b
+        temperature: 0.0
+
+jwt:
+  secret-key: sjihrjhsguusgkgju549ahfj;jawjiquaHJJJGUjJiohugvLJNDV;KJPUgSJGIHSUH
+
+github:
+  client-id: ${GITHUB_CLIENT_ID:}
+  client-secret: ${GITHUB_CLIENT_SECRET:}
+  redirect-uri: ${GITHUB_REDIRECT_URI:http://localhost:3000/auth/github/callback}
+  # Optional. A personal access token (classic, "repo" scope for private
+  # repos, or no scopes needed for public-repo read access) used server-side
+  # when reading a linked repo's issues/PRs/commits. Without it, those calls
+  # go out unauthenticated and are capped at 60 requests/hour by GitHub.
+  api-token: ${GITHUB_API_TOKEN:}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+  metrics:
+    tags:
+      application: neuroforge-nexus

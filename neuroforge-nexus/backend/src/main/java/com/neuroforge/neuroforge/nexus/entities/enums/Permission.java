@@ -1,0 +1,22 @@
+package com.neuroforge.neuroforge.nexus.entities.enums;
+
+public enum Permission {
+    // Project
+    PROJECT_CREATE, PROJECT_READ, PROJECT_UPDATE, PROJECT_DELETE, PROJECT_ASSIGN_TEAM,
+
+    // Sprint / Task
+    SPRINT_CREATE, SPRINT_READ, SPRINT_UPDATE,
+    TASK_CREATE, TASK_ASSIGN, TASK_UPDATE_STATUS,
+
+    // CI/CD
+    PIPELINE_TRIGGER, PIPELINE_READ, PIPELINE_ROLLBACK,
+
+    // Release
+    RELEASE_CREATE, RELEASE_APPROVE, RELEASE_READ,
+
+    // Monitoring
+    MONITORING_READ, MONITORING_ACK_ALERT,
+
+    // Admin
+    USER_MANAGE, RBAC_MANAGE
+}
